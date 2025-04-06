@@ -1,0 +1,54 @@
+/* app/styles/collection-detail.css */
+
+.detail-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .detail-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail-card h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .detail-table th,
+  .detail-table td {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .detail-table th {
+    background-color: #f9f9f9;
+    width: 30%;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #0070f3;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
