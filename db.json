@@ -23,17 +23,17 @@
     },
     {
       "id": "4",
-      "name": "Mouth wash",
+      "name": "Mouth Wash",
       "company": "Glaxo",
       "dosage": "100",
       "email": "glaxo@test.com"
     },
     {
-      "id": "6",
-      "name": "waters",
-      "company": "waters",
-      "dosage": "100",
-      "email": "water@test.com"
+      "id": "4",
+      "name": "Suvash Sharma",
+      "company": "asdf",
+      "dosage": "32",
+      "email": "af"
     }
   ]
 }

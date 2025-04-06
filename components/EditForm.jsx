@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { updateItem } from '../app/admin/edit/actions';
+import { updateItem } from '@/app/admin/edit/actions';
+import '@/styles/edit-form.css'; 
 
 export default function EditForm({ item }) {
   const [form, setForm] = useState(item);
@@ -11,20 +12,25 @@ export default function EditForm({ item }) {
 
   const validate = () => {
     const errs = [];
+
     if (form.name.length < 3 || form.name.length > 14)
       errs.push("Name must be between 3 and 14 characters.");
-    if (Number(form.dosage) <= 20)
-      errs.push("Dosage must be greater than 20.");
-    if (!form.email.includes('@'))
-      errs.push("Email must be valid.");
+
+    if (isNaN(Number(form.dosage)) || Number(form.dosage) <= 20 || Number(form.dosage) > 1000)
+      errs.push("Dosage must be a number greater than 20 and less than or equal to 1000.");
+
+    if (!form.email.includes('@') || !form.email.includes('.'))
+      errs.push("Email must be valid and include '@' and a domain.");
+
     return errs;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errs = validate();
-    if (errs.length > 0) {
-      setErrors(errs);
+    const validationErrors = validate();
+
+    if (validationErrors.length > 0) {
+      setErrors(validationErrors);
       return;
     }
 
@@ -33,22 +39,28 @@ export default function EditForm({ item }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="edit-form-container">
+      <h2>Edit Item</h2>
+
       {errors.length > 0 && (
-        <ul style={{ color: 'red' }}>
+        <ul className="edit-form-errors">
           {errors.map((err, i) => <li key={i}>{err}</li>)}
         </ul>
       )}
-      {Object.keys(form).map((field) => (
-        <div key={field}>
-          <label>{field}</label>
-          <input
-            value={form[field]}
-            onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-          />
-        </div>
-      ))}
-      <button type="submit">Save</button>
-    </form>
+
+      <form onSubmit={handleSubmit}>
+        {Object.entries(form).map(([field, value]) => (
+          <div className="edit-form-group" key={field}>
+            <label>{field}</label>
+            <input
+              value={value}
+              onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+            />
+          </div>
+        ))}
+
+        <button type="submit" className="edit-form-button">Save</button>
+      </form>
+    </div>
   );
 }

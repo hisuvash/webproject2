@@ -1,0 +1,47 @@
+/* app/styles/edit-form.css */
+
+.edit-form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-form-container h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .edit-form-errors {
+    color: red;
+    margin-bottom: 1rem;
+  }
+  
+  .edit-form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .edit-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .edit-form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .edit-form-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  

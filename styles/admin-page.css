@@ -1,0 +1,53 @@
+/* app/styles/admin-page.css */
+
+.admin-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-container h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .admin-create-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #0070f3;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .admin-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .admin-table td a,
+  .admin-table td button {
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: #0070f3;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .admin-table td button:hover {
+    text-decoration: underline;
+  }
+  
