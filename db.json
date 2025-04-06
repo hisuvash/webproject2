@@ -29,18 +29,11 @@
       "email": "glaxo@test.com"
     },
     {
-      "id": "5",
-      "name": "Hair",
-      "company": "Hair factory",
+      "id": "6",
+      "name": "water",
+      "company": "water",
       "dosage": "100",
-      "email": "hair@test.com"
-    },
-    {
-      "id": "7",
-      "name": "dsf",
-      "company": "sdfg",
-      "dosage": "354",
-      "email": "sgg@dggf.com"
+      "email": "water@test.com"
     }
   ]
 }

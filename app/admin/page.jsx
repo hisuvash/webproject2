@@ -1,13 +1,28 @@
-// app/admin/page.jsx
-import Link from 'next/link';
+'use client';
 
-export default async function AdminPage() {
-  const res = await fetch('http://localhost:4000/items');
-  const items = await res.json();
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { deleteItem } from './actions';
+
+export default function AdminPage() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/items')
+      .then(res => res.json())
+      .then(setItems);
+  }, []);
+
+  const handleDelete = async (id) => {
+    if (confirm(`Are you sure you want to delete item ${id}?`)) {
+      await deleteItem(id);
+      setItems(items.filter(item => item.id !== id)); // Update UI instantly
+    }
+  };
 
   return (
     <main>
-      <h1>Admin Route/ Admin Panel</h1>
+      <h1>Admin Panel</h1>
       <Link href="/admin/create">Create New</Link>
       <table border="1" cellPadding="8" style={{ marginTop: '1rem' }}>
         <thead>
@@ -17,8 +32,8 @@ export default async function AdminPage() {
             <th>Company</th>
             <th>Dosage</th>
             <th>Email</th>
-            <th>Delete</th>
-            <th>EDit</th>
+            <th>D</th>
+            <th>E</th>
           </tr>
         </thead>
         <tbody>
@@ -29,8 +44,12 @@ export default async function AdminPage() {
               <td>{item.company}</td>
               <td>{item.dosage}</td>
               <td>{item.email}</td>
-              <td><Link href={`/api/delete/${item.id}`}>D</Link></td>
-              <td><Link href={`/admin/edit/${item.id}`}>E</Link></td>
+              <td>
+                <button onClick={() => handleDelete(item.id)}>D</button>
+              </td>
+              <td>
+                <Link href={`/admin/edit/${item.id}`}>E</Link>
+              </td>
             </tr>
           ))}
         </tbody>
