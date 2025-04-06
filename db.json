@@ -1,26 +1,46 @@
 {
-    "items": [
-      {
-        "id": "1",
-        "name": "Aspirin",
-        "company": "Bayer",
-        "dosage": 500,
-        "email": "info@bayer.com"
-      },
-      {
-        "id": "2",
-        "name": "Ibuprofen",
-        "company": "Advil Corp",
-        "dosage": 400,
-        "email": "support@advil.com"
-      },
-      {
-        "id": "3",
-        "name": "Paracetamol",
-        "company": "Tylenol",
-        "dosage": 650,
-        "email": "help@tylenol.com"
-      }
-    ]
-  }
-  
+  "items": [
+    {
+      "id": "1",
+      "name": "Aspirin",
+      "company": "Bayer",
+      "dosage": 500,
+      "email": "info@bayer.com"
+    },
+    {
+      "id": "2",
+      "name": "Ibuprofen",
+      "company": "Advil Corp",
+      "dosage": 400,
+      "email": "support@advil.com"
+    },
+    {
+      "id": "3",
+      "name": "Paracetamol",
+      "company": "Tylenol",
+      "dosage": 650,
+      "email": "help@tylenol.com"
+    },
+    {
+      "id": "4",
+      "name": "Mouth wash",
+      "company": "Glaxo",
+      "dosage": "100",
+      "email": "glaxo@test.com"
+    },
+    {
+      "id": "5",
+      "name": "Hair",
+      "company": "Hair factory",
+      "dosage": "100",
+      "email": "hair@test.com"
+    },
+    {
+      "id": "7",
+      "name": "dsf",
+      "company": "sdfg",
+      "dosage": "354",
+      "email": "sgg@dggf.com"
+    }
+  ]
+}

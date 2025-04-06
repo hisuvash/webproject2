@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createItem } from './actions';
 
 export default function CreatePage() {
   const [form, setForm] = useState({
@@ -17,7 +16,11 @@ export default function CreatePage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createItem(form);
+    await fetch('http://localhost:4000/items', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form)
+    });
     router.push('/admin');
   };
 
@@ -25,7 +28,7 @@ export default function CreatePage() {
     <form onSubmit={handleSubmit}>
       {Object.keys(form).map((field) => (
         <div key={field}>
-          <label>{field}</label>
+          <label>{field}:</label>
           <input
             value={form[field]}
             onChange={(e) => setForm({ ...form, [field]: e.target.value })}
