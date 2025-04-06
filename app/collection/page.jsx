@@ -12,7 +12,7 @@ export default async function CollectionPage() {
         <div key={item.id} style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem 0' }}>
           <p><strong>ID:</strong> {item.id}</p>
           <p><strong>Name:</strong> {item.name}</p>
-          <Link href={`/collection/${item.id}`}>Details</Link>
+          <Link href={`/collection/${item.id}`}>more</Link>
         </div>
       ))}
     </main>
