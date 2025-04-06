@@ -1,4 +1,5 @@
-// app/layout.jsx
+import Link from 'next/link';
+import '@/styles/layout.css'; 
 
 export default function RootLayout({ children }) {
   return (
@@ -6,13 +7,22 @@ export default function RootLayout({ children }) {
       <head>
         <title>My Next.js App</title>
       </head>
-      <body style={{ margin: 0, fontFamily: 'Arial, sans-serif', background: '#f9f9f9' }}>
-        <header style={{ padding: '1rem', background: '#333', color: '#fff' }}>
-          <h1>My Project #2 </h1>
+      <body>
+        <header className="navbar">
+          <nav>
+            <h1 className="nav-title"> Project #2</h1>
+            <ul className="nav-links">
+              <li><Link href="/collection">Collection</Link></li>
+              <li><Link href="/admin">Admin</Link></li>
+            </ul>
+          </nav>
         </header>
-        <main style={{ padding: '2rem' }}>
-          {children}
-        </main>
+
+        <main className="main-content">{children}</main>
+
+        <footer className="footer">
+          <p>© 2025 SFWRTECH 4WP3 ·</p>
+        </footer>
       </body>
     </html>
   );
