@@ -20,7 +20,7 @@ export default function CreatePage() {
     const errs = [];
 
     if (!form.id.trim() || isNaN(Number(form.id)) || Number(form.id) <= 0) {
-      errs.push("ID must be a positive number.");
+      errs.push("ID should be numeric and greater than 0.");
     }
 
     if (form.name.trim().length < 3 || form.name.trim().length > 14) {

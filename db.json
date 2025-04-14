@@ -1,70 +1,70 @@
 {
   "items": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tear Drops",
       "company": "Drops Inc.",
       "dosage": 100,
       "email": "tears@asdf.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "PainRelief",
       "company": "HealFast",
       "dosage": 250,
       "email": "painrelief@healfast.com"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "AllergyAway",
       "company": "ClearAir",
       "dosage": 50,
       "email": "support@clearair.com"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "ColdCure",
       "company": "PharmaPlus",
       "dosage": 200,
       "email": "info@pharmaplus.com"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "HeartCare",
       "company": "CardioMed",
       "dosage": 150,
       "email": "contact@cardiomed.com"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "SleepWell",
       "company": "DreamCare",
       "dosage": 75,
       "email": "help@dreamcare.com"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "AntibioticX",
       "company": "MediLife",
       "dosage": 500,
       "email": "support@medilife.com"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "VitaminD3",
       "company": "NutriCare",
       "dosage": 1000,
       "email": "service@nutricare.com"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "InsulinFlex",
       "company": "GlucoLabs",
       "dosage": 40,
       "email": "insulin@glucolabs.com"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "CoughFree",
       "company": "WellnessRx",
       "dosage": 120,

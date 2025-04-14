@@ -17,7 +17,7 @@ export default function EditForm({ item }) {
       errs.push("Name must be between 3 and 14 characters.");
 
     if (isNaN(Number(form.dosage)) || Number(form.dosage) <= 20 || Number(form.dosage) > 1000)
-      errs.push("Dosage must be a number greater than 20 and less than or equal to 1000.");
+      errs.push("Dosage must be greater than 20 and less than or equal to 1000.");
 
     if (!form.email.includes('@') || !form.email.includes('.'))
       errs.push("Email must be valid and include '@' and a domain.");
