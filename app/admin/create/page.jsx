@@ -6,6 +6,7 @@ import '@/styles/create-page.css';
 
 export default function CreatePage() {
   const [form, setForm] = useState({
+    id: '',
     name: '',
     company: '',
     dosage: '',
@@ -17,6 +18,10 @@ export default function CreatePage() {
 
   const validate = () => {
     const errs = [];
+
+    if (!form.id.trim() || isNaN(Number(form.id)) || Number(form.id) <= 0) {
+      errs.push("ID must be a positive number.");
+    }
 
     if (form.name.trim().length < 3 || form.name.trim().length > 14) {
       errs.push("Name must be between 3 and 14 characters.");
@@ -50,7 +55,13 @@ export default function CreatePage() {
     await fetch('http://localhost:4000/items', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
+      body: JSON.stringify({
+        id: Number(form.id),
+        name: form.name,
+        company: form.company,
+        dosage: Number(form.dosage),
+        email: form.email
+      })
     });
 
     router.push('/admin');
@@ -69,8 +80,9 @@ export default function CreatePage() {
       <form onSubmit={handleSubmit}>
         {Object.entries(form).map(([field, value]) => (
           <div key={field} className="create-form-group">
-            <label>{field}</label>
+            <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
             <input
+              type={field === 'id' || field === 'dosage' ? 'number' : 'text'}
               value={value}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
             />
