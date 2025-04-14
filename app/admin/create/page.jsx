@@ -19,8 +19,10 @@ export default function CreatePage() {
   const validate = () => {
     const errs = [];
 
-    if (!form.id.trim() || isNaN(Number(form.id)) || Number(form.id) <= 0) {
-      errs.push("ID should be numeric and greater than 0.");
+    const dosage = Number(form.dosage);
+
+    if (!form.id.trim()) {
+      errs.push("ID cannot be empty.");
     }
 
     if (form.name.trim().length < 3 || form.name.trim().length > 14) {
@@ -31,13 +33,12 @@ export default function CreatePage() {
       errs.push("Company is required.");
     }
 
-    const dosage = Number(form.dosage);
     if (isNaN(dosage) || dosage <= 20) {
       errs.push("Dosage must be a number greater than 20.");
     }
 
     if (!form.email.includes('@') || !form.email.includes('.')) {
-      errs.push("Email must be valid.");
+      errs.push("Email must be in valid format test@example.com.");
     }
 
     return errs;
@@ -52,16 +53,18 @@ export default function CreatePage() {
       return;
     }
 
+    const newItem = {
+      id: form.id.trim(), // String
+      name: form.name.trim(),
+      company: form.company.trim(),
+      dosage: Number(form.dosage), // Number
+      email: form.email.trim()
+    };
+
     await fetch('http://localhost:4000/items', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: Number(form.id),
-        name: form.name,
-        company: form.company,
-        dosage: Number(form.dosage),
-        email: form.email
-      })
+      body: JSON.stringify(newItem)
     });
 
     router.push('/admin');
@@ -82,7 +85,8 @@ export default function CreatePage() {
           <div key={field} className="create-form-group">
             <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
             <input
-              type={field === 'id' || field === 'dosage' ? 'number' : 'text'}
+              type={field === 'dosage' ? 'number' : 'text'}
+              inputMode={field === 'dosage' ? 'numeric' : undefined}
               value={value}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
             />

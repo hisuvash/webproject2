@@ -55,6 +55,7 @@ export default function EditForm({ item }) {
             <input
               value={value}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
+              disabled={field === 'id'}
             />
           </div>
         ))}

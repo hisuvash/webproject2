@@ -2,14 +2,8 @@
 
 import { revalidatePath } from 'next/cache';
 
-
 export async function updateItem(form) {
-  const updatedForm = {
-    ...form,
-    id: Number(form.id),
-    dosage: Number(form.dosage),
-  };
-  await fetch(`http://localhost:4000/items/${updatedForm.id}`, {
+  await fetch(`http://localhost:4000/items/${form.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(form),
@@ -17,5 +11,5 @@ export async function updateItem(form) {
 
   revalidatePath('/admin');
   revalidatePath('/collection');
-  revalidatePath(`/collection/${updatedForm.id}`);
+  revalidatePath(`/collection/${form.id}`);
 }
