@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { updateItem } from '@/app/admin/edit/actions';
-import '@/styles/edit-form.css'; 
+import '@/styles/edit-form.css';
 
 export default function EditForm({ item }) {
   const [form, setForm] = useState(item);
@@ -16,7 +16,8 @@ export default function EditForm({ item }) {
     if (form.name.length < 3 || form.name.length > 14)
       errs.push("Name must be between 3 and 14 characters.");
 
-    if (isNaN(Number(form.dosage)) || Number(form.dosage) <= 20 || Number(form.dosage) > 1000)
+    const dosage = Number(form.dosage);
+    if (isNaN(dosage) || dosage <= 20 || dosage > 1000)
       errs.push("Dosage must be greater than 20 and less than or equal to 1000.");
 
     if (!form.email.includes('@') || !form.email.includes('.'))
@@ -34,7 +35,12 @@ export default function EditForm({ item }) {
       return;
     }
 
-    await updateItem(form);
+    const updatedForm = {
+      ...form,
+      dosage: Number(form.dosage) // Ensure dosage is stored as a number
+    };
+
+    await updateItem(updatedForm);
     router.push('/admin');
   };
 
@@ -51,15 +57,15 @@ export default function EditForm({ item }) {
       <form onSubmit={handleSubmit}>
         {Object.entries(form).map(([field, value]) => (
           <div className="edit-form-group" key={field}>
-            <label>{field}</label>
+            <label>{field.charAt(0).toUpperCase() + field.slice(1)}</label>
             <input
+              type={field === 'dosage' ? 'number' : 'text'}
               value={value}
               onChange={(e) => setForm({ ...form, [field]: e.target.value })}
               disabled={field === 'id'}
             />
           </div>
         ))}
-
         <button type="submit" className="edit-form-button">Save</button>
       </form>
     </div>
