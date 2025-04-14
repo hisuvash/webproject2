@@ -34,8 +34,8 @@ export default function AdminPage() {
             <th>Company</th>
             <th>Dosage</th>
             <th>Email</th>
-            <th>D</th>
-            <th>E</th>
+            <th>Delete</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>
@@ -47,10 +47,10 @@ export default function AdminPage() {
               <td>{item.dosage}</td>
               <td>{item.email}</td>
               <td>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                <button onClick={() => handleDelete(item.id)}>D</button>
               </td>
               <td>
-                <Link href={`/admin/edit/${item.id}`}>Edit</Link>
+                <Link href={`/admin/edit/${item.id}`}>E</Link>
               </td>
             </tr>
           ))}

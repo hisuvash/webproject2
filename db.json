@@ -2,17 +2,10 @@
   "items": [
     {
       "id": "1",
-      "name": "Aspirin",
-      "company": "Bayer",
-      "dosage": 500,
-      "email": "info@bayer.com"
-    },
-    {
-      "id": "2",
-      "name": "Ibuprofen",
-      "company": "Advil Corp",
-      "dosage": 400,
-      "email": "support@advil.com"
+      "name": "Tear drops",
+      "company": "Drops",
+      "dosage": "100",
+      "email": "tears@asdf.com"
     },
     {
       "id": "3",
@@ -29,18 +22,18 @@
       "email": "glaxo@test.com"
     },
     {
-      "id": "d301",
+      "id": "5",
       "name": "Dettol",
       "company": "Haxo",
       "dosage": "202",
       "email": "haxo@test.com"
     },
     {
-      "id": "3a0b",
-      "name": "qq",
-      "company": "qq",
-      "dosage": "33",
-      "email": ""
+      "id": "cf3a",
+      "name": "Tear drops",
+      "company": "Drops",
+      "dosage": "30",
+      "email": "tears@asdf.com"
     }
   ]
 }

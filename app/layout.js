@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <main className="main-content">{children}</main>
 
         <footer className="footer">
-          <p>© 2025 SFWRTECH 4WP3 ·</p>
+          <p>© 2025 Project2·</p>
         </footer>
       </body>
     </html>
