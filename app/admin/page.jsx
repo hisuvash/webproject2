@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { deleteItem } from './actions';
-import '@/styles/admin-page.css'; 
+import '@/styles/admin-page.css';
 
 export default function AdminPage() {
   const [items, setItems] = useState([]);
+  const [sortCompany, setSortCompany] = useState(null); // do not sort company at first
 
   useEffect(() => {
     fetch('http://localhost:4000/items')
@@ -21,6 +22,22 @@ export default function AdminPage() {
     }
   };
 
+  const toggleCompanySort = () => {
+    setSortCompany(prev =>
+      prev === 'asc' ? 'desc' : 'asc'
+    );
+  };
+
+  const sortedItems = () => {
+    if (sortCompany === null) return items;
+
+    return [...items].sort((a, b) => {
+      return sortCompany === 'asc'
+        ? a.company.localeCompare(b.company)
+        : b.company.localeCompare(a.company);
+    });
+  };
+
   return (
     <div className="admin-container">
       <h1>Admin Panel</h1>
@@ -31,7 +48,14 @@ export default function AdminPage() {
           <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Company</th>
+            <th>
+              Company
+              <button onClick={toggleCompanySort} className="sort-button">
+                {sortCompany === 'asc' && '▲'}
+                {sortCompany === 'desc' && '▼'}
+                {sortCompany === null && '↕'}
+              </button>
+            </th>
             <th>Dosage</th>
             <th>Email</th>
             <th>Delete</th>
@@ -39,7 +63,7 @@ export default function AdminPage() {
           </tr>
         </thead>
         <tbody>
-          {items.map((item) => (
+          {sortedItems().map((item) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.name}</td>
